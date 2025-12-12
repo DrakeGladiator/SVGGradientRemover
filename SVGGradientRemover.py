@@ -5,7 +5,7 @@ SVGGradientRemover.py
 Replace SVG linearGradient fills with a solid color (taken from the first stop),
 write the modified SVG, then convert it to PDF using svglib + ReportLab.
 
-Why: svglib/ReportLab do not support SVG color gradients. :contentReference[oaicite:1]{index=1}
+Why: svglib/ReportLab do not support SVG color gradients.
 """
 
 from __future__ import annotations
@@ -195,13 +195,13 @@ def process_svg(input_svg: Path, output_svg: Path) -> None:
             # Non-fatal; keep going with unindented output
             pass
 
-    # Write with XML declaration and UTF-8 encoding. :contentReference[oaicite:2]{index=2}
+    # Write with XML declaration and UTF-8 encoding.
     tree.write(output_svg, encoding="utf-8", xml_declaration=True)
 
 
 def convert_svg_to_pdf(input_svg: Path, output_pdf: Path) -> None:
     drawing = svg2rlg(str(input_svg))
-    # ReportLab renderer writes Drawing into a PDF file. :contentReference[oaicite:3]{index=3}
+    # ReportLab renderer writes Drawing into a PDF file.
     renderPDF.drawToFile(drawing, str(output_pdf))
 
 
@@ -261,3 +261,4 @@ def main(argv: Optional[list[str]] = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
